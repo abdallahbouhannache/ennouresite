@@ -155,9 +155,9 @@ const IndexPage = () => {
         <About />
         <Team />
         <Home />
-        {/* <News /> */}
         <Appointement />
         <Map /> 
+        {/* <News /> */}
         {/* <Footer /> */}
       {/* </body> */}
     </Layout>

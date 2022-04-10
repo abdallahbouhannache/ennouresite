@@ -19,7 +19,7 @@ export default function Footer() {
                 to the side of nouisser sweets shop
               </p>
               <div className="contact-info">
-                <p><i className="fa fa-phone" /> 0776-04-56-06</p>
+                <p><i className="fa fa-phone" /> 0672-98-47-15 | 0776-04-56-06 </p>
                 <p><i className="fa fa-envelope-o" /> <a href="#" role="email">cliniquelatreche@gmail.com</a></p>
               </div>
             </div>
