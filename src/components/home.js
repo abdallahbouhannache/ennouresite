@@ -1,9 +1,11 @@
 import React from "react";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Home() {
   {
     /* <!-- HOME --> */
   }
+  const { t } = useTranslation();
 
   return (
     <section id="home" className="slider" data-stellar-background-ratio="0.5">
@@ -13,8 +15,8 @@ export default function Home() {
             <div className="item item-first">
               <div className="caption">
                 <div className="col-md-offset-1 col-md-10">
-                  <h1 >Healthy Living</h1>
-                  <h3 >Let's make your life happier</h3>
+                  <h1>{t("Healthy Living")}</h1>
+                  <h3>{t("Let's make your life happier")}</h3>
                   {/* <a
                     href="#team"
                     className="section-btn btn btn-default smoothScroll"
@@ -27,8 +29,8 @@ export default function Home() {
             <div className="item item-second">
               <div className="caption">
                 <div className="col-md-offset-1 col-md-10">
-                  <h1>New Lifestyle</h1>
-                  <h3>Aenean luctus lobortis tellus</h3>
+                  <h1>{t("New Lifestyle")}</h1>
+                  <h3>{t("Aenean luctus lobortis tellus")}</h3>
                   {/* <a
                     href="#about"
                     className="section-btn btn btn-default btn-gray smoothScroll"
@@ -41,8 +43,8 @@ export default function Home() {
             <div className="item item-third">
               <div className="caption">
                 <div className="col-md-offset-1 col-md-10">
-                  <h1>Your Health Benefits</h1>
-                  <h3>Pellentesque nec libero nisi</h3>
+                  <h1>{t("Your Health Benefits")}</h1>
+                  <h3>{t("Pellentesque nec libero nisi")}</h3>
                   {/* <a
                     href="#news"
                     className="section-btn btn btn-default btn-blue smoothScroll"
@@ -55,8 +57,8 @@ export default function Home() {
             <div className="item item-fourth">
               <div className="caption">
                 <div className="col-md-offset-1 col-md-10">
-                  <h1>Your Health Benefits</h1>
-                  <h3>Pellentesque nec libero nisi</h3>
+                  <h1>{t("Your Health Benefits")}</h1>
+                  <h3>{t("Pellentesque nec libero nisi")}</h3>
                   {/* <a
                     href="#news"
                     className="section-btn btn btn-default btn-blue smoothScroll"

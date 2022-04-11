@@ -26,7 +26,7 @@
     })
 
     // PARALLAX EFFECT
-    $.stellar();  
+    $.stellar();
 
     // SMOOTHSCROLL
     $(function() {
@@ -46,6 +46,5 @@
     }).on('mouseleave',function () { 
       $(this).stop().animate({'bottom':'0'},350)
     })
-
 
 })(jQuery);

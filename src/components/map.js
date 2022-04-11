@@ -1,9 +1,11 @@
 import React from "react";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Map() {
   {
     /* <!-- GOOGLE MAP --> */
   }
+  const { t } = useTranslation();
 
   return (
     <section id="google-map">

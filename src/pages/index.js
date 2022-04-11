@@ -1,16 +1,18 @@
-import * as React from "react"
-import { Helmet } from "react-helmet"
-import { withPrefix } from "gatsby"
+import * as React from "react";
+import { Helmet } from "react-helmet";
 
-import Menu  from "../components/menu"
-import Home  from "../components/home"
-import About  from "../components/about"
-import Team  from "../components/team"
-import News  from "../components/news"
-import Appointement from "../components/appointement"
-import Map   from "../components/map"
-import Layout   from "../components/layout"
-import Spinner  from "../components/spinner"
+import { withPrefix, graphql } from "gatsby";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+
+import Menu from "../components/menu";
+import Home from "../components/home";
+import About from "../components/about";
+import Team from "../components/team";
+import News from "../components/news";
+import Appointement from "../components/appointement";
+import Map from "../components/map";
+import Layout from "../components/layout";
+import Spinner from "../components/spinner";
 
 // import Header  from "../components/header"
 // import Footer   from "../components/footer"
@@ -142,26 +144,39 @@ import Spinner  from "../components/spinner"
 
 // markup
 const IndexPage = () => {
-  
-  return (  
-    <Layout >
+  return (
+    <Layout>
       {/* 
       style={pageStyles}
       <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50"> */}
-        {/* <!-- PRE LOADER --> */}
-        <Spinner/>
-        {/* <Header /> */}
-        <Menu />
-        <About />
-        <Team />
-        <Home />
-        <Appointement />
-        <Map /> 
-        {/* <News /> */}
-        {/* <Footer /> */}
+      {/* <!-- PRE LOADER --> */}
+      <Spinner />
+      {/* <Header /> */}
+      <Menu />
+      <About />
+      <Team />
+      <Home />
+      <Appointement />
+      <Map />
+      {/* <News /> */}
+      {/* <Footer /> */}
       {/* </body> */}
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
+
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

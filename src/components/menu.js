@@ -1,9 +1,13 @@
 import React from "react";
+import { graphql } from "gatsby";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Menu() {
   {
     /* <!-- MENU --> */
   }
+  const { t } = useTranslation();
+
   return (
     <section
       className="navbar navbar-default navbar-static-top"
@@ -23,14 +27,14 @@ export default function Menu() {
           {/* lOGO TEXT HERE */}
           {/* <i className="fa fa-stethoscope" aria-hidden="true" /> */}
           <a href="#top" className="navbar-brand">
-            Clinic
-              <img
-                src="images/logo.png"
-                className="img-responsive"
-                alt="picture"
-                style={{ width: "1em" }}
-              />
-            Latreche
+            {t("Clinic")}
+            <img
+              src="images/logo.png"
+              className="img-responsive"
+              alt="picture"
+              style={{ width: "1em" }}
+            />
+            {t("Latreche")}
           </a>
         </div>
         {/* MENU LINKS */}
@@ -38,31 +42,31 @@ export default function Menu() {
           <ul className="nav navbar-nav navbar-right">
             <li>
               <a href="#top" className="smoothScroll">
-                Home
+                {t("Home")}
               </a>
             </li>
             <li>
               <a href="#about" className="smoothScroll">
-                About Us
+                {t("About Us")}
               </a>
             </li>
             <li>
               <a href="#team" className="smoothScroll">
-                Services
+                {t("Services")}
               </a>
             </li>
             <li>
               <a href="#home" className="smoothScroll">
-                Clinic
+                {t("Clinic")}
               </a>
             </li>
             <li>
               <a href="#google-map" className="smoothScroll">
-                Contact
+                {t("Contact")}
               </a>
             </li>
             <li className="appointment-btn">
-              <a href="#appointment">Make an appointment</a>
+              <a href="#appointment">{t("Make an appointment")}</a>
             </li>
           </ul>
         </div>
