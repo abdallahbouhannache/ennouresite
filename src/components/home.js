@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Home() {

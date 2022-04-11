@@ -1,4 +1,5 @@
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
+import { Link , graphql } from "gatsby";
 import React from "react";
 
 const Switcher = ({ title }) => {
