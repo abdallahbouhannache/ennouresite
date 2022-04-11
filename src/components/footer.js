@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { withPrefix } from "gatsby";
+import { withPrefix , graphql} from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Footer() {

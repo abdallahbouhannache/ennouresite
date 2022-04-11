@@ -1,4 +1,6 @@
 node_modules/
 .cache/
+static/page-data/
+finished/
 public
 finished
