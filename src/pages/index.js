@@ -7,7 +7,7 @@ import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import Menu from "../components/menu";
 import Home from "../components/home";
 import About from "../components/about";
-import Team from "../components/team";
+// import Team from "../components/team";
 import News from "../components/news";
 import Appointement from "../components/appointement";
 import Map from "../components/map";
@@ -154,7 +154,7 @@ const IndexPage = () => {
       {/* <Header /> */}
       <Menu />
       <About />
-      <Team />
+      {/* <Team /> */}
       <Home />
       <Appointement />
       <Map />
