@@ -6,6 +6,7 @@ module.exports = {
   plugins: [
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
+    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -23,6 +24,11 @@ module.exports = {
         name: `locale`,
       },
       __key: "locale",
+      options: {
+        path: `${__dirname}/content/`,
+        name: `content`,
+      },
+      __key: "content",
     },
     {
       resolve: `gatsby-plugin-react-i18next`,

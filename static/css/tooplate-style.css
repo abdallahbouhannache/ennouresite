@@ -232,8 +232,8 @@ a:focus {
        LANG SWITCHER             
   -----------------------------------------*/
 .lang-switcher {
-  position: absolute;
-  top: 5px;
+  position: relative;
+  /* top: 5px; */
   z-index: 999999 !important;
 }
 
