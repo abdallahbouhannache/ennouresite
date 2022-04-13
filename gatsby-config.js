@@ -56,6 +56,12 @@ module.exports = {
       //   },
       // ]
     },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/blog/*`,`/news/*`],
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-translate`,
     //   options: {
