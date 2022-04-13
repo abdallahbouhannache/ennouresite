@@ -1,5 +1,4 @@
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
-
 import { graphql } from "gatsby";
 
 import React from "react";
