@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import { Link, graphql } from "gatsby";
-import { jquery as $ } from "jquery";
+import $  from "jquery";
 
 import Services from "../components/services";
 import Spinner from "../components/spinner";
