@@ -25,10 +25,10 @@ module.exports = {
       },
       __key: "locale",
       options: {
-        path: `${__dirname}/content/`,
-        name: `content`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
-      __key: "content",
+      __key: "blog",
     },
     {
       resolve: `gatsby-plugin-react-i18next`,
