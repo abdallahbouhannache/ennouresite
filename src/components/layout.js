@@ -13,7 +13,7 @@ import Footer from "./footer";
 // <link rel="stylesheet"  href={withPrefix('css/owl.carousel.css')}    type="text/css"  />
 // <link rel="stylesheet"  href={withPrefix('css/owl.theme.default.min.css')}    type="text/css"  />
 // <link rel="stylesheet"  href={withPrefix('css/tooplate-style.css')}    type="text/css"  /> */}
-const Layout = ({ children }) => {
+const Layout = ({ children, location, title }) => {
   const { t } = useTranslation();
 
   return (
