@@ -144,8 +144,10 @@ import Spinner from "../components/spinner";
 
 // markup
 const IndexPage = () => {
+  const { t } = useTranslation();
+
   return (
-    <Layout>
+    <Layout  title={t("Welcome to my Gatsby site")}>
       {/* 
       style={pageStyles}
       <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50"> */}

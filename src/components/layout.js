@@ -15,20 +15,45 @@ import Footer from "./footer";
 // <link rel="stylesheet"  href={withPrefix('css/tooplate-style.css')}    type="text/css"  /> */}
 const Layout = ({ children, location, title }) => {
   const { t } = useTranslation();
+  // const rootPath = `${__PATH_PREFIX__}/`
+  // const isRootPath = location.pathname === rootPath
+  // let header
+
+  // if (isRootPath) {
+  //   header = (
+  //     <h1 className="main-heading">
+  //       <Link to="/">{title}</Link>
+  //     </h1>
+  //   )
+  // } else {
+  //   header = (
+  //     <Link className="header-link-home" to="/">
+  //       {title}
+  //     </Link>
+  //   )
+  // }
 
   return (
     <>
       <Helmet>
-        <title>{t("Welcome to my Gatsby site")}</title>
+        <title>
+          {title | "clinique latreche"}
+          {/* {t("Welcome to my Gatsby site")} */}
+        </title>
         <script
           src={withPrefix("js/custom.js")}
           type="text/javascript"
           async={true}
         />
       </Helmet>
-      <Header />
+
+      {/* <Header /> */}
+
       {children}
-      <Footer />
+
+      {/* <main>{children}</main> */}
+
+      {/* <Footer /> */}
     </>
   );
 };
