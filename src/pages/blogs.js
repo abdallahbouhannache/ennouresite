@@ -26,6 +26,8 @@ const BlogIndex = ({ data, location }) => {
     justifyContent: "center",
     alignItems: "center",
   };
+
+  console.log(posts)
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -39,6 +41,8 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     );
   }
+
+  
 
   return (
     <Layout location={location} title={siteTitle}>
