@@ -8,9 +8,8 @@ backend:
     uploadMedia: "[skip ci] Upload “{{path}}”"
     deleteMedia: "[skip ci] Delete “{{path}}”"
 
-
 local_backend: true
-media_folder: static/images
+media_folder: images/uploads
 public_folder: /images
 
 collections:

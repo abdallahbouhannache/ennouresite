@@ -27,7 +27,7 @@ const BlogIndex = ({ data, location }) => {
     alignItems: "center",
   };
 
-  console.log(posts)
+  console.log({ data });
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
@@ -41,8 +41,6 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     );
   }
-
-  
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -73,7 +71,7 @@ const BlogIndex = ({ data, location }) => {
                       border: "1px solid",
                       width: "100%",
                       display: "block",
-                    //   height: "200px",
+                      //   height: "200px",
                     }}
                   >
                     <img
@@ -81,7 +79,7 @@ const BlogIndex = ({ data, location }) => {
                       className="img-responsive"
                       alt="imga"
                     />
-                    <p style={{padding:0,margin:0}}>
+                    <p style={{ padding: 0, margin: 0 }}>
                       {el} {i}dddd
                     </p>
                   </div>

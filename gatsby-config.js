@@ -2,43 +2,66 @@ module.exports = {
   siteMetadata: {
     title: `clinique médicale`,
     siteUrl: `https://www.cliniquelatreche.com`,
+    author: {
+      name: `abdallah bouhannache`,
+      summary: `a software engineer with msc in computer science and information tech.`,
+    },
+    description: `a website for for private medical clinic.`,
+    social: {
+      twitter: `clinique latreche`,
+    },
   },
   plugins: [
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-netlify-cms",
-    "gatsby-plugin-image",
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-image`,
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "pages",
-        path: `${__dirname}/src/pages/`,
+        name: `pages`,
+        path: `${__dirname}/src/pages`,
       },
-      __key: "pages",
+      __key: `pages`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "components",
-        path: `${__dirname}/src/components/`,
+        name: `components`,
+        path: `${__dirname}/src/components`,
       },
-      __key: "components",
+      __key: `components`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/locales/`,
+        path: `${__dirname}/locales`,
         name: `locale`,
       },
-      __key: "locale",
+      __key: `locale`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog/`,
+        path: `${__dirname}/content/blog`,
         name: `blog`,
       },
-      __key: "blog",
+      __key: `blog`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/news/`,
+        path: `${__dirname}/content/news`,
         name: `news`,
       },
-      __key: "news",
+      __key: `news`,
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/images/`,
+        path: `${__dirname}/src/images`,
         name: `images`,
       },
-      __key: "images",
+      __key: `images`,
     },
     {
       resolve: `gatsby-plugin-react-i18next`,
@@ -159,8 +182,8 @@ module.exports = {
                     }
                   }
                 `,
-            output: "/rss.xml",
-            title: "Gatsby Starter Blog RSS Feed",
+            output: `/rss.xml`,
+            title: `Gatsby Starter Blog RSS Feed`,
           },
         ],
       },
@@ -179,31 +202,31 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: "gatsby-plugin-netlify-cms",
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-netlify-cms`,
+    //   options: {
+    //     modulePath: `${__dirname}/src/cms/cms.js`,
+    //   },
+    // },
     // ,
     // {
-    //   resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
+    //   resolve: `gatsby-plugin-purgecss`, // purges all unused/unreferenced css rules
     //   options: {
     //     develop: true, // Activates purging in npm run develop
-    //     purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
+    //     purgeOnly: [`/all.sass`], // applies purging only on the bulma css file
     //   },
     // },
     // must be after other CSS plugins
-    "gatsby-plugin-netlify", // make sure to keep it last in the array
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-offline`,
-      options: {
-        precachePages: [`/blog/*`, `/news/*`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-offline`,
+    //   options: {
+    //     precachePages: [`/blog/*`, `/news/*`],
+    //   },
+    // },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-netlify`, // make sure to keep it last in the array
   ],
 };
