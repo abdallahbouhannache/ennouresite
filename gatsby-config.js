@@ -25,19 +25,20 @@ module.exports = {
       },
       __key: "locale",
       options: {
-        path: `${__dirname}/content/blog`,
+        path: `${__dirname}/content/blog/`,
         name: `blog`,
       },
       __key: "blog",
       options: {
-        path: `${__dirname}/content/news`,
+        path: `${__dirname}/content/news/`,
         name: `news`,
       },
       __key: "news",
       options: {
+        path: `${__dirname}/src/images/`,
         name: `images`,
-        path: `${__dirname}/src/images`,
       },
+      __key: "images",
     },
     {
       resolve: `gatsby-plugin-react-i18next`,
@@ -179,6 +180,22 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: "gatsby-plugin-netlify-cms",
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+      },
+    },
+    // ,
+    // {
+    //   resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
+    //   options: {
+    //     develop: true, // Activates purging in npm run develop
+    //     purgeOnly: ["/all.sass"], // applies purging only on the bulma css file
+    //   },
+    // },
+    // must be after other CSS plugins
+    "gatsby-plugin-netlify", // make sure to keep it last in the array
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

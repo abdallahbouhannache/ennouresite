@@ -1,7 +1,15 @@
 backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
 
+
+local_backend: true
 media_folder: static/images
 public_folder: /images
 
@@ -14,7 +22,7 @@ collections:
     preview_path: "blog/{{slug}}"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
+    path: "{{title}}/blog-{{slug}}"
     editor:
       preview: true
     fields:
@@ -30,7 +38,7 @@ collections:
     preview_path: "news/{{slug}}"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
+    path: "{{title}}/news-{{slug}}"
     editor:
       preview: true
     fields:
