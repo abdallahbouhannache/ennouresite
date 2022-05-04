@@ -1,9 +1,12 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+
 import { withPrefix, graphql } from "gatsby";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import { Trans, useTranslation, useI18next } from "gatsby-plugin-react-i18next";
+
 import Header from "./header";
 import Footer from "./footer";
+// import "../i18n";
 
 // import PropTypes from 'prop-types'
 // import Spinner from './spinner'
@@ -13,8 +16,10 @@ import Footer from "./footer";
 // <link rel="stylesheet"  href={withPrefix('css/owl.carousel.css')}    type="text/css"  />
 // <link rel="stylesheet"  href={withPrefix('css/owl.theme.default.min.css')}    type="text/css"  />
 // <link rel="stylesheet"  href={withPrefix('css/tooplate-style.css')}    type="text/css"  /> */}
-const Layout = ({ children, location, title }) => {
-  const { t } = useTranslation();
+const Layout = ({ children, location, title, ns }) => {
+  // const { t, i18n } = useTranslation(["app","blog"]);
+  const { t, languages, changeLanguage, language } = useI18next(ns);
+
   // const rootPath = `${__PATH_PREFIX__}/`
   // const isRootPath = location.pathname === rootPath
   // let header
@@ -32,28 +37,42 @@ const Layout = ({ children, location, title }) => {
   //     </Link>
   //   )
   // }
+  document.onclick = (e) => {
+    if (
+      e.target.classList.contains("swlang") ||
+      e.target.classList.contains("languages-switcher")
+    ) {
+      $(".languages").fadeToggle(300);
+      setTimeout(() => {
+        $(".languages").fadeOut(300);
+      }, 10000);
+    } else {
+      $(".languages").fadeOut(300);
+    }
+  };
 
   return (
     <>
-      <Helmet>
-        <title>
-          {title | "clinique latreche"}
-          {/* {t("Welcome to my Gatsby site")} */}
-        </title>
+      <Helmet
+        htmlAttributes={{
+          lang: language,
+          dir: language == "ar" ? "rtl" : "ltr",
+        }}
+        title={title || "clinique latreche"}
+      >
+        {/* <title>          
+          {t("Clinic", "Clinic")}
+        </title> */}
         <script
           src={withPrefix("js/custom.js")}
           type="text/javascript"
           async={true}
         />
       </Helmet>
-
-      {/* <Header /> */}
-
+      <Header ns={ns} />
       {children}
-
       {/* <main>{children}</main> */}
-
-      {/* <Footer /> */}
+      <Footer ns={ns} />
     </>
   );
 };

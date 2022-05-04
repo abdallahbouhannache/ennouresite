@@ -19,7 +19,7 @@ export default function News() {
             <div className="news-thumb wow fadeInUp" data-wow-delay="0.4s">
               <a href="news-detail.html">
                 <img
-                  src="images/news-image1.jpg"
+                  src="/images/news-image1.jpg"
                   className="img-responsive"
                   alt="imga"
                 />
@@ -35,7 +35,7 @@ export default function News() {
                 </p>
                 <div className="author">
                   <img
-                    src="images/author-image.jpg"
+                    src="/images/author-image.jpg"
                     className="img-responsive"
                     alt="imga"
                   />
@@ -52,7 +52,7 @@ export default function News() {
             <div className="news-thumb wow fadeInUp" data-wow-delay="0.6s">
               <a href="news-detail.html">
                 <img
-                  src="images/news-image2.jpg"
+                  src="/images/news-image2.jpg"
                   className="img-responsive"
                   alt="imga"
                 />
@@ -70,7 +70,7 @@ export default function News() {
                 </p>
                 <div className="author">
                   <img
-                    src="images/author-image.jpg"
+                    src="/images/author-image.jpg"
                     className="img-responsive"
                     alt="imga"
                   />
@@ -87,7 +87,7 @@ export default function News() {
             <div className="news-thumb wow fadeInUp" data-wow-delay="0.8s">
               <a href="news-detail.html">
                 <img
-                  src="images/news-image3.jpg"
+                  src="/images/news-image3.jpg"
                   className="img-responsive"
                   alt="imga"
                 />
@@ -103,7 +103,7 @@ export default function News() {
                 </p>
                 <div className="author">
                   <img
-                    src="images/author-image.jpg"
+                    src="/images/author-image.jpg"
                     className="img-responsive"
                     alt="imga"
                   />

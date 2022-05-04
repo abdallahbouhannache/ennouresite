@@ -15,6 +15,7 @@ module.exports = {
     `gatsby-plugin-mdx`,
     `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-image`,
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -67,8 +68,11 @@ module.exports = {
       resolve: `gatsby-plugin-react-i18next`,
       options: {
         localeJsonSourceName: `locale`,
-        languages: [`en`, `fr`, `ar`],
-        defaultLanguage: `en`,
+        languages: [`fr`, `en`, `ar`],
+        defaultLanguage: `fr`,
+        ns: ["app", "blog"],
+        defaultNS: "app",
+        // fallbackLanguage: 'ar',
         siteUrl: `http://localhost:8000/`,
         i18nextOptions: {
           interpolation: {

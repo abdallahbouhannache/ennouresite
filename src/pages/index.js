@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
 
 import { withPrefix, graphql } from "gatsby";
@@ -7,12 +7,14 @@ import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import Menu from "../components/menu";
 import Home from "../components/home";
 import About from "../components/about";
-// import Team from "../components/team";
+import Team from "../components/team";
 import News from "../components/news";
 import Appointement from "../components/appointement";
 import Map from "../components/map";
 import Layout from "../components/layout";
 import Spinner from "../components/spinner";
+
+// import "../i18n";
 
 // import Header  from "../components/header"
 // import Footer   from "../components/footer"
@@ -144,19 +146,26 @@ import Spinner from "../components/spinner";
 
 // markup
 const IndexPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+
+  useEffect(() => {
+    setTimeout(() => {
+      $(".preloader.mainpre").fadeOut(1000);
+      console.log("useeffect index");
+    }, 1000);
+  }, []);
 
   return (
-    <Layout  title={t("Welcome to my Gatsby site")}>
+    <Layout title={t("clinique latreche")} ns={"app"}>
       {/* 
       style={pageStyles}
       <body id="top" data-spy="scroll" data-target=".navbar-collapse" data-offset="50"> */}
       {/* <!-- PRE LOADER --> */}
-      <Spinner />
+      <Spinner /> 
       {/* <Header /> */}
       <Menu />
       <About />
-      {/* <Team /> */}
+      <Team />
       <Home />
       <Appointement />
       <Map />
@@ -169,16 +178,18 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-// export const query = graphql`
-//   query ($language: String!) {
-//     locales: allLocale(filter: { language: { eq: $language } }) {
-//       edges {
-//         node {
-//           ns
-//           data
-//           language
-//         }
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  query ($language: String!) {
+    locales: allLocale(
+      filter: { ns: { in: ["app"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
+`;

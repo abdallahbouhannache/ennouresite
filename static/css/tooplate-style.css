@@ -109,6 +109,12 @@ a:focus {
   background: #000000;
 }
 
+.d-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
 .section-title {
   padding-bottom: 20px;
 }
@@ -349,6 +355,10 @@ header span.date-icon {
 header span i {
   color: #278370;
   margin-right: 5px;
+}
+
+header .fa {
+  padding: 0 0.2em;
 }
 
 
@@ -602,6 +612,22 @@ header span i {
 }
 
 
+#about .Timing {
+  flex-direction: column;
+  display: flex;
+  position: absolute;
+  top: 23em;
+  align-items: center;
+  justify-content: space-around;
+  padding: 23px;
+  border-radius: 50%;
+  border-width: 0.6em;
+  border: 1px solid #e3e3e342;
+  box-shadow: 0px 0px 24px 9px #278370;
+  /* float: 'right'; */
+  /*  width: "30em"; */
+
+}
 
 /*---------------------------------------
       TEAM MEMBERS              
@@ -1028,6 +1054,25 @@ footer a:hover {
 
 .contact-info {
   padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.contact-info .contact {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+
+
+.contact-info a {
+  margin: 0 0.5em;
 }
 
 .contact-info .fa {
@@ -1039,16 +1084,22 @@ footer a:hover {
   height: 35px;
   line-height: 35px;
   text-align: center;
-  margin-right: 5px;
-  margin-bottom: 2px;
+  margin: 0.2em 0.6em;
+}
+
+.stories {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .latest-stories {
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  padding: 0 3em;
 }
 
-.stories-image,
-.stories-info {
+.stories-image {
   display: inline-block;
   vertical-align: top;
 }
@@ -1060,11 +1111,15 @@ footer a:hover {
 }
 
 .stories-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin-left: 15px;
 }
 
 .stories-info h5 {
-  margin-bottom: 2px;
+  padding: 0;
+  margin: 0;
 }
 
 .stories-info span {
@@ -1132,11 +1187,16 @@ footer a:hover {
   position: relative;
   padding: 0;
   margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .social-icon li {
   display: inline-block;
   list-style: none;
+  margin: 0;
 }
 
 .social-icon li a {
@@ -1546,6 +1606,21 @@ footer a:hover {
 
   .listServices .serviceitems:nth-child(odd) img {
     order: -1;
+  }
+
+
+  #about {
+    height: auto;
+  }
+
+  #about .Timing {
+    border: 1px solid rgba(227, 227, 227, 0.26);
+    padding: 0;
+    border-radius: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    justify-content: center;
   }
 
 }

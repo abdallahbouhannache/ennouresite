@@ -1,18 +1,24 @@
 import * as React from "react";
 import { Link, graphql } from "gatsby";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 import Bio from "../../components/bio";
 import Layout from "../../components/layout";
 import Seo from "../../components/seo";
 import SidePan from "../../components/sidepane";
 import SearchBar from "../../components/searchbar";
+import BlogItem from "../../components/blogItem";
+import Paginate from "../../components/pagination";
+import Appointement from "../../components/appointement";
+import Map from "../../components/map";
+// import Comments from "../../components/comments";
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`;
   const posts = data.allMarkdownRemark.nodes;
 
   const wrpcontent = {
-    border: "1px solid",
+    // border: "1px solid",
     display: "grid",
     width: "100%",
     height: "100%",
@@ -26,11 +32,13 @@ const BlogIndex = ({ data, location }) => {
     justifyContent: "center",
     alignItems: "center",
   };
+  // console.log({ dataindex: data });
 
-  console.log({ data });
+  const { t, i18n } = useTranslation(["blog"]);
+
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={siteTitle} ns={"blog"}>
         <Seo title="All posts" />
         <Bio />
         <p>
@@ -43,10 +51,10 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+    <Layout location={location} title={siteTitle} ns={"blog"}>
+      {/* <Seo title="All posts" /> */}
       {/* <Bio /> */}
-      <div className="container-fluid" style={wrp} dir={"ltr"}>
+      <div className="container-fluid" style={wrp}>
         <div
           className="contentwrapper container"
           style={{
@@ -54,38 +62,41 @@ const BlogIndex = ({ data, location }) => {
             justifyContent: "center",
           }}
         >
-          <SidePan />
+          {/* <SidePan /> */}
           <div
             className="blogcontent"
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
           >
             <div className="headerblog">
               <SearchBar />
-              <h2>blogs title</h2>
+              <h2>{t("Patients Stories")}</h2>
             </div>
             <div className="gridblog" style={wrpcontent}>
-              {[44, 5, 6, 8, 9, 18, 66].map((el, i) => {
+              {posts.map((el, i) => {
                 return (
                   <div
+                    key={i}
                     style={{
-                      border: "1px solid",
+                      // border: "1px solid",
                       width: "100%",
                       display: "block",
                       //   height: "200px",
                     }}
                   >
-                    <img
-                      src="images/product1.jpg"
-                      className="img-responsive"
-                      alt="imga"
-                    />
-                    <p style={{ padding: 0, margin: 0 }}>
-                      {el} {i}dddd
-                    </p>
+                    {/* <img
+                        src="images/product1.jpg"
+                        className="img-responsive"
+                        alt="imga"
+                      />
+                      <p style={{ padding: 0, margin: 0 }}>
+                        {el} {i}dddd
+                      </p> */}
+                    <BlogItem data={{ ...el.frontmatter, ...el.fields }} />
                   </div>
                 );
               })}
             </div>
+            {posts.length > 12 && <Paginate />}
           </div>
         </div>
       </div>
@@ -122,6 +133,8 @@ const BlogIndex = ({ data, location }) => {
           );
         })}
       </ol> */}
+      <Map />
+      <Appointement />
     </Layout>
   );
 };
@@ -129,7 +142,18 @@ const BlogIndex = ({ data, location }) => {
 export default BlogIndex;
 
 export const pageQuery = graphql`
-  query {
+  query ($language: String!) {
+    locales: allLocale(
+      filter: { ns: { in: ["blog"] }, language: { eq: $language } }
+    ) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
     site {
       siteMetadata {
         title
@@ -142,11 +166,31 @@ export const pageQuery = graphql`
           slug
         }
         frontmatter {
-          date(formatString: "MMMM DD, YYYY")
           title
+          category
+          excerpt
+          image
+          pubdate(formatString: "MMMM DD, YYYY")
+          expdate(formatString: "MMMM DD, YYYY")
           description
         }
       }
     }
   }
 `;
+
+// export const query = graphql`
+//   query ($language: String!) {
+//     locales: allLocale(
+//       filter: { ns: { in: ["app"] }, language: { eq: $language } }
+//     ) {
+//       edges {
+//         node {
+//           ns
+//           data
+//           language
+//         }
+//       }
+//     }
+//   }
+// `;

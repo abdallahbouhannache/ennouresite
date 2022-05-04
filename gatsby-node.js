@@ -1,3 +1,14 @@
+// to be used later for simplifing stuff
+// const {onCreatePage} = require('./dist/plugin/onCreatePage');
+// const {onCreateNode} = require('./dist/plugin/onCreateNode');
+// const {onPreBootstrap} = require('./dist/plugin/onPreBootstrap');
+
+// exports.onCreatePage = onCreatePage;
+// exports.onCreateNode = onCreateNode;
+// exports.onPreBootstrap = onPreBootstrap;
+
+// const { defaultLanguage, languages } = require("./src/i18n");
+
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -64,7 +75,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
-
     createNodeField({
       name: `slug`,
       node,

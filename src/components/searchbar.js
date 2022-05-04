@@ -1,6 +1,9 @@
 import React from "react";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function searchbar() {
+  const { t, i18n } = useTranslation();
+
   return (
     <div
       className=""
@@ -14,7 +17,7 @@ export default function searchbar() {
       <div className="row" style={{ width: "100%" }}>
         <div className="col-xs-8 col-xs-offset-2">
           <div className="input-group">
-            <div className="input-group-btn search-panel">
+            {/* <div className="input-group-btn search-panel">
               <button
                 type="button"
                 className="btn btn-default dropdown-toggle"
@@ -41,7 +44,7 @@ export default function searchbar() {
                   <a href="#all">Anything</a>
                 </li>
               </ul>
-            </div>
+            </div> */}
             <input
               type="hidden"
               name="search_param"
@@ -52,11 +55,11 @@ export default function searchbar() {
               type="text"
               className="form-control"
               name="x"
-              placeholder="Search term..."
+              placeholder={t("Search term...")}
             />
             <span className="input-group-btn">
               <button className="btn btn-default" type="button">
-                <span className="glyphicon glyphicon-search" />
+                <span className="fa fa-search" />
               </button>
             </span>
           </div>

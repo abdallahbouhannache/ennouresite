@@ -6,7 +6,7 @@ export default function Map() {
   {
     /* <!-- GOOGLE MAP --> */
   }
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(["app", "blog"]);
 
   return (
     <section id="google-map">

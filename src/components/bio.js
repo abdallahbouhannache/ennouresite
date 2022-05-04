@@ -8,8 +8,11 @@
 import * as React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 const Bio = () => {
+  const { t, i18n } = useTranslation(["app", "blog"]);
+
   const data = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -51,6 +54,19 @@ const Bio = () => {
           </a>
         </p>
       )}
+      <div className="copyright-text">
+        <p>
+          {t("developped by ")}
+          <a
+            id="developer"
+            href="https://github.com/abdallahbouhannache"
+            style={{ padding: "0 3px" }}
+          >
+            {t("abdallah-bouhannache")}
+          </a>
+          |{t(" Design: Tooplate")}
+        </p>
+      </div>
     </div>
   );
 };

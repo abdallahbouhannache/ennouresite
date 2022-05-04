@@ -1,67 +1,82 @@
 import { Link, useI18next } from "gatsby-plugin-react-i18next";
 import { graphql } from "gatsby";
-
-import React from "react";
+import React, { useState } from "react";
 
 const Switcher = ({ title }) => {
-  const { languages, changeLanguage } = useI18next();
+  const { languages, changeLanguage, language } = useI18next();
+  // const [state, setstate] = useState({ curimglang: "/images/lang/EN.svg" });
 
-  const getLang = () => {
-    $(".languages").fadeToggle(300);
+  // const getLang = (lng = null) => {
+  //   $(".languages").fadeToggle(300);
+    // setTimeout(() => {
+    //   $(".languages").fadeOut(300);
+    //   console.log('timeout')
+    // }, 5000);
+    // console.log({'lng':lng})
+    // if (lng) {
+    //   console.log(lng)
+    //   setstate({ curimglang: `/images/lang/${lng}.svg` });
+    // }
     // $(".languages-switcher").on("click", (e) => {
     // });
-  };
+  // };
+
   const imgstyle = {
     border: "1px solid #38353547",
     borderRadius: "50%",
   };
+
   return (
     <div className="lang-switcher">
       {/* <h1 style={{ margin: 0 }}></h1> */}
-      <Link
-        className="languages-switcher btn btn-secondary dropdown-toggle "
-        href="#"
+      <button
+        style={{ background: "none" }}
+        className="languages-switcher btn  dropdown-toggle "
         role="button"
         id="languagesBar"
         data-bs-toggle="dropdown"
         aria-expanded="true"
-        to="/"
-        onClick={getLang}
+        href="#"
+        // onClick={() => getLang()}
       >
         {/* {title}00 */}
         <img
+          className="swlang"
           width="20"
-          src="/images/lang/EN.svg"
+          src={`/images/lang/${language}.svg`}
           alt={title}
           style={imgstyle}
         />
-      </Link>
+      </button>
       <ul
-        className="languages bg-dark dropdown-menu "
+        style={{ top: "50%" }}
+        className="languages bg-dark dropdown-menu"
         aria-labelledby="languagesBar"
         data-popper-placement="bottom-start"
       >
-        {languages.map((lng) => (
-          <li>
-            <a
-              key={lng}
-              className="dropdown-item"
-              href="/"
-              onClick={() => {
-                getLang();
-                changeLanguage(lng);
-              }}
-            >
-              <img
-                width="20"
-                src={`/images/lang/${lng}.svg`}
-                alt={lng}
-                style={imgstyle}
-              />
-              {/* {lng} */}
-            </a>
-          </li>
-        ))}
+        {languages.map((lng, ind) => {
+          if (lng != language) {
+            return (
+              <li key={ind}>
+                <a
+                  // href={window.location.href.includes("blog") ? `/${lng}/blog` : `/${lng}/` }
+                  className="dropdown-item"
+                  onClick={(e) => {
+                    // getLang(lng);
+                    changeLanguage(lng);
+                  }}
+                >
+                  <img
+                    width="20"
+                    src={`/images/lang/${lng}.svg`}
+                    alt={lng}
+                    style={imgstyle}
+                  />
+                </a>
+              </li>
+            );
+          }
+        })}
       </ul>
     </div>
   );

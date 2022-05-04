@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Link , graphql } from "gatsby";
+import { Link, graphql } from "gatsby";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 import Service from "./service";
 
@@ -7,9 +8,9 @@ import Service from "./service";
 const pageStyles = {
   color: "#232129",
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  display:'flex',
-  flexDirection:'column',
-  display:'none',
+  display: "flex",
+  flexDirection: "column",
+  display: "none",
 };
 
 const headingStyles = {
@@ -28,32 +29,32 @@ const listservicesCss = {
   alignItems: "spaceBetween",
   margin: 0,
   padding: 0,
-  
 };
 
 // markup
 const Services = () => {
+  const { t, i18n } = useTranslation();
   const data = [
     {
-      img: "images/romdr.jpg",
-      title: "Medical Examinations",
+      img: "/images/romdr.jpg",
+      title: t("Medical Examinations"),
       ullist: [
-        "Follow-up of chronic diseases (diabetes, blood pressure...)",
-        "Treatment room, changing dressings, needles, etc ",
+        t("Follow-up of chronic diseases (diabetes, blood pressure...)"),
+        t("Treatment room, changing dressings, needles, etc "),
       ],
     },
     {
-      img: "images/romdr2.jpg",
-      title: "Medical Examinations",
+      img: "/images/romdr2.jpg",
+      title: t("Medical Examinations"),
       ullist: [
-        "Follow-up of chronic diseases (diabetes, blood pressure...)",
-        "Treatment room, changing dressings, needles, etc ",
+        t("Follow-up of chronic diseases (diabetes, blood pressure...)"),
+        t("Treatment room, changing dressings, needles, etc "),
       ],
     },
   ];
   return (
     <section style={pageStyles} className="container detailServices">
-      <div className="listServices" style={listservicesCss} >
+      <div className="listServices" style={listservicesCss}>
         <Service data={data[0]} />
         <Service data={data[1]} />
         <Service data={data[1]} />

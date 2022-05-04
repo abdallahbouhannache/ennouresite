@@ -1,13 +1,13 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { withPrefix , graphql} from "gatsby";
+import { withPrefix, graphql } from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
-export default function Footer() {
+export default function Footer({ns}) {
   {
     /* <!-- FOOTER --> */
   }
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation([ns]);
 
   return (
     <footer data-stellar-background-ratio={5}>
@@ -18,22 +18,19 @@ export default function Footer() {
               <h4 className="wow fadeInUp" data-wow-delay="0.4s">
                 {t("Contact Info")}
               </h4>
-              <p style={{ padding: "0em 0.4em" }}>
-                {t("Private Health Care Clinic Latreche ")},<br />
-                {t("Ferdjioua")}
-                {t(" on Street of Ahmed Boussekin")} ,<br />
+              <p style={{ padding: "0em 0.4em", textAlign: "justify" }}>
+                {t("Private Health Care Clinic Latreche ")},{t("Ferdjioua")}
+                {t(" on Street of Ahmed Boussekin")} ,
                 {t(" to the side of nouisser sweets shop")}
               </p>
               <div className="contact-info">
-                <p>
-                  <i className="fa fa-phone" /> 0672-98-47-15 | 0776-04-56-06{" "}
-                </p>
-                <p>
-                  <i className="fa fa-envelope-o" />{" "}
-                  <a href="#" role="email">
+                <div className="contact">
+                  <i className="fa fa-phone" /> 0672-98-47-15 | 0776-04-56-06
+                </div>
+                <div className="contact">
+                  <i className="fa fa-envelope-o" />
                     cliniquelatreche@gmail.com
-                  </a>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -42,38 +39,37 @@ export default function Footer() {
               <h4 className="wow fadeInUp" data-wow-delay="0.4s">
                 {t("Tools and Equipements")}
               </h4>
-              <div className="latest-stories">
-                <div className="stories-image">
-                  <a href="#">
-                    <img
-                      src="images/dc30mindray.png"
-                      className="img-responsive"
-                      alt="imga"
-                    />
-                  </a>
+              <div className="stories">
+                <div className="latest-stories">
+                  <div className="stories-image">
+                    <a href="#">
+                      <img
+                        src="/images/dc30mindray.png"
+                        alt="imga"
+                      />
+                    </a>
+                  </div>
+                  <div className="stories-info">
+                    <a href="#">
+                      <h5>{t("Echography")}</h5>
+                    </a>
+                  </div>
                 </div>
-                <div className="stories-info">
-                  <a href="#">
-                    <h5>{t("Echography")}</h5>
-                  </a>
-                  <span>{t("March 08, 2018")}</span>
-                </div>
-              </div>
-              <div className="latest-stories">
-                <div className="stories-image">
-                  <a href="#">
-                    <img
-                      src="images/ecg2.png"
-                      className="img-responsive"
-                      alt="imga"
-                    />
-                  </a>
-                </div>
-                <div className="stories-info">
-                  <a href="#">
-                    <h5>{t("ECG")}</h5>
-                  </a>
-                  <span>{t("February 20, 2018")}</span>
+
+                <div className="latest-stories">
+                  <div className="stories-image">
+                    <a href="#">
+                      <img
+                        src="/images/ecg2.png"
+                        alt="imga"
+                      />
+                    </a>
+                  </div>
+                  <div className="stories-info">
+                    <a href="#">
+                      <h5>{t("ECG")}</h5>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

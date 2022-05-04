@@ -1,13 +1,12 @@
 import React from "react";
 import { graphql } from "gatsby";
-import {Trans, useTranslation} from 'gatsby-plugin-react-i18next';
-
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 export default function Appointement() {
   {
     /* <!-- MAKE AN APPOINTMENT --> */
   }
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(["app"]);
 
   return (
     <section id="appointment" data-stellar-background-ratio={3}>
@@ -15,7 +14,7 @@ export default function Appointement() {
         <div className="row">
           <div className="col-md-6 col-sm-6">
             <img
-              src="images/appointment-image.jpg"
+              src="/images/appointment-image.jpg"
               className="img-responsive"
               alt="imga"
             />
@@ -25,31 +24,39 @@ export default function Appointement() {
             <form id="appointment-form" role="form" method="post" action="#">
               {/* SECTION TITLE */}
               <div className="section-title wow fadeInUp" data-wow-delay="0.4s">
-                <h2><Trans>Make an appointment</Trans></h2>
+                <h2>
+                  <Trans>Make an appointment</Trans>
+                </h2>
               </div>
               <div className="wow fadeInUp" data-wow-delay="0.8s">
                 <div className="col-md-6 col-sm-6">
-                  <label htmlFor="name"><Trans>Name</Trans> </label>
+                  <label htmlFor="name">
+                    <Trans>Name</Trans>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     id="name"
                     name="name"
-                    placeholder="first Name"
+                    placeholder={t("first Name")}
                   />
                 </div>
                 <div className="col-md-6 col-sm-6">
-                <label htmlFor="name"><Trans>Last Name</Trans> </label>
+                  <label htmlFor="name">
+                    <Trans>Last Name</Trans>
+                  </label>
                   <input
                     type="text"
                     className="form-control"
                     id="name"
                     name="name"
-                    placeholder="Last Name"
+                    placeholder={t("Last Name")}
                   />
                 </div>
                 <div className="col-md-6 col-sm-6">
-                  <label htmlFor="date"><Trans>Select Date</Trans> </label>
+                  <label htmlFor="date">
+                    <Trans>Select Date</Trans>
+                  </label>
                   <input
                     type="date"
                     name="date"
@@ -58,31 +65,37 @@ export default function Appointement() {
                   />
                 </div>
                 <div className="col-md-6 col-sm-6">
-                  <label htmlFor="email"><Trans>Email</Trans> </label>
+                  <label htmlFor="email">
+                    <Trans>Email</Trans>
+                  </label>
                   <input
                     type="email"
                     className="form-control"
                     id="email"
                     name="email"
-                    placeholder="Your Email"
+                    placeholder={t("Your Email")}
                   />
                 </div>
                 <div className="col-md-12 col-sm-12">
-                  <label htmlFor="telephone"><Trans>Phone Number</Trans> </label>
+                  <label htmlFor="telephone">
+                    <Trans>Phone Number</Trans>
+                  </label>
                   <input
                     type="tel"
                     className="form-control"
                     id="phone"
                     name="phone"
-                    placeholder="Phone"
+                    placeholder={t("Phone")}
                   />
-                  <label htmlFor="Message"><Trans>Additional Message</Trans> </label>
+                  <label htmlFor="Message">
+                    <Trans>Message text</Trans>
+                  </label>
                   <textarea
                     className="form-control"
                     rows={5}
                     id="message"
                     name="message"
-                    placeholder="Message"
+                    placeholder={t("Message")}
                     defaultValue={""}
                   />
                   <button
@@ -90,12 +103,12 @@ export default function Appointement() {
                     className="form-control"
                     id="cf-submit"
                     name="submit"
-                    onClick={(e)=>{
-                      alert('srry not ready yet');
+                    onClick={(e) => {
+                      alert(t("sorry were not ready yet"));
                       e.preventDefault();
                     }}
                   >
-                   <Trans>Submit Button</Trans> 
+                    <Trans>Submit Button</Trans>
                   </button>
                 </div>
               </div>

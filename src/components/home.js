@@ -6,7 +6,29 @@ export default function Home() {
   {
     /* <!-- HOME --> */
   }
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const stories = {
+    first: {
+      title: t("Healthy Living"),
+      descparagraph: t("Let's make your life happier"),
+      img: "../images/waiting.jpg",
+    },
+    second: {
+      title: t("Healthy Living"),
+      descparagraph: t("Let's make your life happier"),
+      img: "../images/waiting.jpg",
+    },
+    third: {
+      title: t("Healthy Living"),
+      descparagraph: t("Let's make your life happier"),
+      img: "../images/waiting.jpg",
+    },
+    fourth: {
+      title: t("Healthy Living"),
+      descparagraph: t("Let's make your life happier"),
+      img: "../images/waiting.jpg",
+    },
+  };
 
   return (
     <section id="home" className="slider" data-stellar-background-ratio="0.5">

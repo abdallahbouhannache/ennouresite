@@ -2,11 +2,11 @@ import React from "react";
 import { graphql } from "gatsby";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
-export default function Menu() {
+export default function Menu({ ns }) {
   {
     /* <!-- MENU --> */
   }
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation([ns]);
 
   return (
     <section
@@ -27,9 +27,10 @@ export default function Menu() {
           {/* lOGO TEXT HERE */}
           {/* <i className="fa fa-stethoscope" aria-hidden="true" /> */}
           <a href="#top" className="navbar-brand">
-            {t("Clinic")}
+            {t("Clinic", "error")}
+            {/* {t("getme")} */}
             <img
-              src="images/logo.png"
+              src="/images/logo.png"
               className="img-responsive"
               alt="picture"
               style={{ width: "1em" }}
@@ -39,7 +40,10 @@ export default function Menu() {
         </div>
         {/* MENU LINKS */}
         <div className="collapse navbar-collapse">
-          <ul className="nav navbar-nav navbar-right">
+          <ul
+            className="nav navbar-nav navbar-right"
+            style={{ display: "flex" }}
+          >
             <li>
               <a href="#top" className="smoothScroll">
                 {t("Home")}
@@ -63,6 +67,11 @@ export default function Menu() {
             <li>
               <a href="#google-map" className="smoothScroll">
                 {t("Contact")}
+              </a>
+            </li>
+            <li>
+              <a href="blog" className="smoothScroll">
+                {t("Blog")}
               </a>
             </li>
             <li className="appointment-btn">

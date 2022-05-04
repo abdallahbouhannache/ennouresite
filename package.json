@@ -18,9 +18,16 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "extract": "babel --config-file ./babel-extract.config.js -o tmp/chunk.js ./src/**/*.{js,jsx,ts,tsx} && rm -rf tmp",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.9",
+    "@babel/plugin-transform-typescript": "^7.16.8",
+    "babel-plugin-i18next-extract": "^0.8.3",
+    "babel-preset-gatsby": "^2.13.0",
+    "i18next-parser": "^6.3.0",
     "prettier": "^2.6.2"
   },
   "dependencies": {
@@ -38,7 +45,7 @@
     "gatsby-plugin-netlify": "^4.2.0",
     "gatsby-plugin-netlify-cms": "^6.12.1",
     "gatsby-plugin-offline": "^5.12.1",
-    "gatsby-plugin-react-helmet": "^5.12.1",
+    "gatsby-plugin-react-helmet": "^5.13.0",
     "gatsby-plugin-react-i18next": "^1.2.3",
     "gatsby-plugin-sharp": "^4.12.1",
     "gatsby-remark-copy-linked-files": "^5.12.1",
@@ -50,6 +57,7 @@
     "gatsby-transformer-remark": "^5.12.1",
     "gatsby-transformer-sharp": "^4.12.1",
     "i18next": "^21.6.15",
+    "i18next-xhr-backend": "^3.2.2",
     "jquery": "^3.6.0",
     "netlify-cms-app": "^2.15.70",
     "netlify-cms-proxy-server": "^1.3.24",

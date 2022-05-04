@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Link } from "gatsby";
 import { graphql } from "gatsby";
-
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 // styles
@@ -30,14 +29,14 @@ const codeStyles = {
 
 // markup
 const NotFoundPage = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation(["app", "blog"]);
 
   return (
     <main style={pageStyles}>
       <title>{t("Not found")}</title>
       <h1 style={headingStyles}>Page not found</h1>
       <p style={paragraphStyles}>
-        Sorry{" "}
+        Sorry
         <span role="img" aria-label="Pensive emoji">
           😔
         </span>
@@ -46,7 +45,7 @@ const NotFoundPage = () => {
         {process.env.NODE_ENV === "development" ? (
           <>
             <br />
-            {t("Try creating a page in")}{" "}
+            {t("Try creating a page in")}
             <code style={codeStyles}>{t("src/pages/")}</code>.
             <br />
           </>

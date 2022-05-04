@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+// import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 
 const serviceitems = {
   display: "flex",
@@ -19,6 +20,8 @@ const serviceContent = {
 };
 
 function service({ data }) {
+  // const { t, i18n } = useTranslation();
+
   return (
     <div
       className="serviceitems servicedetail1  wow fadeInUp"
