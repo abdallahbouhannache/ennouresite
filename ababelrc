@@ -1,0 +1,22 @@
+{
+    "plugins": [
+      ["@babel/plugin-proposal-decorators", { "legacy": true }]
+    ],
+    "presets": [
+      [
+        "babel-preset-gatsby",
+        {
+          "targets": {
+            "browsers": [">0.25%", "not dead"]
+          }
+        }
+      ]
+    ]
+  }
+  lng == language
+
+
+TODOS
+  -blog translation
+  -change lang to current page 
+  -
