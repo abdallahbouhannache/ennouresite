@@ -1,0 +1,102 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (optional; defaults to master)
+  commit_messages:
+    create: "Create {{collection}} “{{slug}}”"
+    update: "Update {{collection}} “{{slug}}”"
+    delete: "Delete {{collection}} “{{slug}}”"
+    uploadMedia: "[skip ci] Upload “{{path}}”"
+    deleteMedia: "[skip ci] Delete “{{path}}”"
+
+local_backend: true
+media_folder: images/uploads
+public_folder: /images
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{title}}"
+    preview_path: "blog/{{slug}}"
+    media_folder: "media"
+    public_folder: ""
+    path: "blog-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - {
+          label: "Title",
+          name: "title",
+          widget: "string",
+          hint: "title for your blog",
+        }
+      - {
+          label: "Image",
+          name: "image",
+          widget: "image",
+          choose_url: true,
+          # default: "/uploads/chocolate-dogecoin.jpg"
+        }
+      - {
+          label: "Publish Date",
+          name: "pubdate",
+          widget: "datetime",
+          hint: "the date for publishing this blog",
+        }
+      - {
+          label: "Experience Date",
+          name: "expdate",
+          widget: "datetime",
+          hint: "date for your experience with the clinique",
+        }
+      - {
+          label: "Excerpt",
+          name: "excerpt",
+          widget: "string",
+          hint: "small description for your story",
+        }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "string",
+          hint: "detailled paragraph for your story",
+        }
+      - {
+          label: "Category",
+          name: "category",
+          widget: "select",
+          options:
+            [
+              "uncategorized",
+              "urgery",
+              "medical assistance",
+              "blood pressure monitoring",
+            ],
+          default: ["uncategorized"],
+          required: false,
+          hint: "select a category for you blog",
+        }
+      - {
+          label: "Extended blog (optional)",
+          name: "body",
+          widget: "markdown",
+          required: false,
+          hint: "more extended details for your story",
+        }
+  - name: "news"
+    label: "News"
+    folder: "content/news"
+    create: true
+    slug: "index"
+    preview_path: "news/{{slug}}"
+    media_folder: ""
+    public_folder: ""
+    path: "{{title}}/news-{{slug}}"
+    editor:
+      preview: true
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
