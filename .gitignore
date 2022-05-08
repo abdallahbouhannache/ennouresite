@@ -67,15 +67,13 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
+.cache/
 
 
 node_modules/
-.cache/
 static/page-data/
 finished/
 public/
-
 
 .prettierignore
 .prettierrc
