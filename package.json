@@ -1,8 +1,8 @@
 {
-  "name": "ennouresite",
+  "name": "ennouredeploy",
   "version": "1.0.0",
   "private": true,
-  "description": "ennouresite",
+  "description": "ennouredeploy",
   "author": "abdallah.bouhannache",
   "keywords": [
     "gatsby"
@@ -29,7 +29,7 @@
     "babel-preset-gatsby": "^2.13.0",
     "i18next-parser": "^6.3.0",
     "prettier": "^2.6.2",
-    "gatsby-plugin-offline": "^5.12.1",
+    "gatsby-plugin-offline": "^5.12.1"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -37,6 +37,7 @@
     "@popperjs/core": "^2.11.4",
     "bootstrap": "^5.1.3",
     "gatsby": "^4.10.3",
+    "gatsby-plugin-analytics": "^0.2.0",
     "gatsby-plugin-feed": "^4.12.1",
     "gatsby-plugin-gatsby-cloud": "^4.12.1",
     "gatsby-plugin-google-analytics": "^4.12.1",

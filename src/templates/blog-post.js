@@ -1,20 +1,18 @@
-import * as React from "react";
-import { Link, graphql } from "gatsby";
-import GatsbyLink from "gatsby-link";
-
+import * as React from "react"
+import { Link, graphql } from "gatsby"
+import GatsbyLink from "gatsby-link"
 
 // import Bio from "../components/bio";
-import Layout from "../components/layout";
-import Seo from "../components/seo";
-import Comments from "../components/comments";
+import Layout from "../components/layout"
+import Seo from "../components/seo"
+import Comments from "../components/comments"
 
-const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark;
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const { previous, next } = data;
+const BlogPostTemplate = ({ data, location, ns = "blog" }) => {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const { previous, next } = data
 
-
-  const paragst = { textAlign: "justify" };
+  const paragst = { textAlign: "justify" }
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -46,7 +44,7 @@ const BlogPostTemplate = ({ data, location }) => {
               textShadow: "1px 1px 3px  #000000f0",
               textAlign: "center",
               textTransform: "capitalize",
-              letterSpacing:"1vw",
+              letterSpacing: "1vw",
             }}
           >
             {post.frontmatter.title}
@@ -57,13 +55,13 @@ const BlogPostTemplate = ({ data, location }) => {
               justifyContent: "space-between",
               display: "flex",
               padding: "5px 15px",
-              fontSize: "1.2em"
+              fontSize: "1.2em",
             }}
           >
             {/* Entry Author */}
             <div className="entry-author">
               <i className="fas fa-user"> </i>
-              <GatsbyLink to={post.slug}>
+              <GatsbyLink to={post.slug || "/"}>
                 {post.frontmatter.category || "uncategorized"}
               </GatsbyLink>
             </div>
@@ -82,7 +80,7 @@ const BlogPostTemplate = ({ data, location }) => {
                 src={"/images/" + (post.frontmatter.image || "default.jpg")}
                 height={300}
                 style={{ width: "100%" }}
-                alt
+                
                 // srcSet=""
                 // sizes="(max-width: 1230px) 100vw, 1230px"
               />
@@ -94,7 +92,7 @@ const BlogPostTemplate = ({ data, location }) => {
                 display: "flex",
                 justifyContent: "flex-end",
                 padding: "5px 15px",
-                fontSize: "1.2em"
+                fontSize: "1.2em",
               }}
             >
               {/* Entry Date */}
@@ -125,7 +123,6 @@ const BlogPostTemplate = ({ data, location }) => {
           >
             <div className="wpb_wrapper">
               <p>
-                
                 {post.frontmatter.excerpt}
                 {/* <em>
                   <a href="#"> meaningful connections</a>
@@ -188,7 +185,6 @@ const BlogPostTemplate = ({ data, location }) => {
                   id="commentform"
                   className="comment-form form"
                   noValidate
-               
                 >
                   <div className="comment-notes form-group">
                     <span id="email-notes">
@@ -254,7 +250,7 @@ const BlogPostTemplate = ({ data, location }) => {
                       required
                     />
                   </div>
-                  <div className="form-submit form-group" >
+                  <div className="form-submit form-group">
                     <input
                       name="submit"
                       type="submit"
@@ -286,7 +282,7 @@ const BlogPostTemplate = ({ data, location }) => {
       </section>
 
       {/* <Comments /> */}
-      
+
       {/* 
       <article
         className="blog-post"
@@ -336,16 +332,17 @@ const BlogPostTemplate = ({ data, location }) => {
       </nav> 
       */}
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
     $id: String!
     $previousPostId: String
     $nextPostId: String
+    $language: String!
   ) {
     site {
       siteMetadata {
@@ -360,7 +357,6 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
-        image
         pubdate
         expdate
         excerpt
@@ -384,9 +380,17 @@ export const pageQuery = graphql`
         title
       }
     }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
   }
-`;
-
+`
 
 // export const query = graphql`
 //   query ($language: String!) {
@@ -402,4 +406,26 @@ export const pageQuery = graphql`
 //       }
 //     }
 //   }
-// `;
+// `
+
+// frontmatter {
+//   title
+//   date(formatString: "MMMM DD, YYYY")
+//   description
+//   image
+//   pubdate
+//   expdate
+//   excerpt
+//   description
+//   category
+// }
+
+// locales: allLocale(filter: { language: { eq: $language } }) {
+//   edges {
+//     node {
+//       ns
+//       data
+//       language
+//     }
+//   }
+// }

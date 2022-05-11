@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
-export default function searchbar() {
+export default function SearchBar() {
   const { t, i18n } = useTranslation();
 
   return (

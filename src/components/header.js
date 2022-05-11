@@ -29,11 +29,11 @@ export default function Header({ ns }) {
             </span>
             <span className="email-icon">
               <i className="fa fa-envelope-o" />
-              <a href="#">CLINIQUELATRECHE@GMAIL.COM</a>
+              <a href="#">CLINIQUELATR  ECHE@GMAIL.COM</a>
             </span>
             {window.location.href.includes("blog") && (
               <span className="home-icon">
-                <i class="fa fa-home"></i>
+                <i className="fa fa-home"></i>
                 <a href="/">{t("Home")}</a>
               </span>
             )}

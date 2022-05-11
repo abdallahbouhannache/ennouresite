@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from "react"
 
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet"
 
-import { withPrefix, graphql } from "gatsby";
-import { Trans, useTranslation, useI18next } from "gatsby-plugin-react-i18next";
+import { withPrefix, graphql } from "gatsby"
+import { Trans, useTranslation, useI18next } from "gatsby-plugin-react-i18next"
 
-import Header from "./header";
-import Footer from "./footer";
+import Header from "./header"
+import Footer from "./footer"
+import jQuery from "jquery"
+
 // import "../i18n";
-
 // import PropTypes from 'prop-types'
 // import Spinner from './spinner'
 // {/* <link rel="stylesheet"  href={withPrefix('css/bootstrap.min.css')}    type="text/css"  />
@@ -19,7 +20,7 @@ import Footer from "./footer";
 // <link rel="stylesheet"  href={withPrefix('css/tooplate-style.css')}    type="text/css"  /> */}
 const Layout = ({ children, location, title, ns }) => {
   // const { t, i18n } = useTranslation(["app","blog"]);
-  const { t, languages, changeLanguage, language } = useI18next(ns);
+  const { t, languages, changeLanguage, language } = useI18next(ns)
 
   // const rootPath = `${__PATH_PREFIX__}/`
   // const isRootPath = location.pathname === rootPath
@@ -40,20 +41,20 @@ const Layout = ({ children, location, title, ns }) => {
   // }
 
   useEffect(() => {
-    document.onclick = (e) => {
+    document.onclick = e => {
       if (
         e.target.classList.contains("swlang") ||
         e.target.classList.contains("languages-switcher")
       ) {
-        $(".languages").fadeToggle(300);
+        jQuery(".languages").fadeToggle(300)
         setTimeout(() => {
-          $(".languages").fadeOut(300);
-        }, 10000);
+          jQuery(".languages").fadeOut(300)
+        }, 10000)
       } else {
-        $(".languages").fadeOut(300);
+        jQuery(".languages").fadeOut(300)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   return (
     <>
@@ -78,8 +79,8 @@ const Layout = ({ children, location, title, ns }) => {
       {/* <main>{children}</main> */}
       <Footer ns={ns} />
     </>
-  );
-};
+  )
+}
 
 // Layout.propTypes = {
 
@@ -89,7 +90,7 @@ const Layout = ({ children, location, title, ns }) => {
 </main> */
 // }
 
-export default Layout;
+export default Layout
 
 // export const query = graphql`
 //   query ($language: String!) {

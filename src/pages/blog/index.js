@@ -1,21 +1,21 @@
-import * as React from "react";
-import { Link, graphql } from "gatsby";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import * as React from "react"
+import { Link, graphql } from "gatsby"
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
 
-import Bio from "../../components/bio";
-import Layout from "../../components/layout";
-import Seo from "../../components/seo";
-import SidePan from "../../components/sidepane";
-import SearchBar from "../../components/searchbar";
-import BlogItem from "../../components/blogItem";
-import Paginate from "../../components/pagination";
-import Appointement from "../../components/appointement";
-import Map from "../../components/map";
+import Bio from "../../components/bio"
+import Layout from "../../components/layout"
+import Seo from "../../components/seo"
+import SidePan from "../../components/sidepane"
+import SearchBar from "../../components/searchbar"
+import BlogItem from "../../components/blogItem"
+import Paginate from "../../components/pagination"
+import Appointement from "../../components/appointement"
+import Map from "../../components/map"
 // import Comments from "../../components/comments";
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`;
-  const posts = data.allMarkdownRemark.nodes;
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const posts = data.allMarkdownRemark.nodes
 
   const wrpcontent = {
     // border: "1px solid",
@@ -25,20 +25,20 @@ const BlogIndex = ({ data, location }) => {
     gridTemplateRows: "auto",
     gridTemplateColumns: " 1fr 1fr 1fr 1fr",
     gridGap: "1.5em",
-  };
+  }
 
   const wrp = {
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-  };
+  }
   // console.log({ dataindex: data });
 
-  const { t, i18n } = useTranslation(["blog"]);
+  const { t, i18n } = useTranslation()
 
   if (posts.length === 0) {
     return (
-      <Layout location={location} title={siteTitle} ns={"blog"}>
+      <Layout location={location} title={siteTitle} ns={"app"}>
         <Seo title="All posts" />
         <Bio />
         <p>
@@ -47,11 +47,11 @@ const BlogIndex = ({ data, location }) => {
           gatsby-config.js).
         </p>
       </Layout>
-    );
+    )
   }
 
   return (
-    <Layout location={location} title={siteTitle} ns={"blog"}>
+    <Layout location={location} title={siteTitle} ns={"app"}>
       {/* <Seo title="All posts" /> */}
       {/* <Bio /> */}
       <div className="container-fluid" style={wrp}>
@@ -93,7 +93,7 @@ const BlogIndex = ({ data, location }) => {
                       </p> */}
                     <BlogItem data={{ ...el.frontmatter, ...el.fields }} />
                   </div>
-                );
+                )
               })}
             </div>
             {posts.length > 12 && <Paginate />}
@@ -136,24 +136,13 @@ const BlogIndex = ({ data, location }) => {
       <Map />
       <Appointement />
     </Layout>
-  );
-};
+  )
+}
 
-export default BlogIndex;
+export default BlogIndex
 
 export const pageQuery = graphql`
-  query ($language: String!) {
-    locales: allLocale(
-      filter: { ns: { in: ["blog"] }, language: { eq: $language } }
-    ) {
-      edges {
-        node {
-          ns
-          data
-          language
-        }
-      }
-    }
+  query ListBlogs($language: String!) {
     site {
       siteMetadata {
         title
@@ -165,25 +154,23 @@ export const pageQuery = graphql`
         fields {
           slug
         }
-        frontmatter {
-          title
-          category
-          excerpt
-          image
-          pubdate(formatString: "MMMM DD, YYYY")
-          expdate(formatString: "MMMM DD, YYYY")
-          description
+      }
+    }
+    locales: allLocale(filter: { language: { eq: $language } }) {
+      edges {
+        node {
+          ns
+          data
+          language
         }
       }
     }
   }
-`;
+`
 
 // export const query = graphql`
 //   query ($language: String!) {
-//     locales: allLocale(
-//       filter: { ns: { in: ["app"] }, language: { eq: $language } }
-//     ) {
+//     locales: allLocale(filter: { language: { eq: $language } }) {
 //       edges {
 //         node {
 //           ns
@@ -193,4 +180,14 @@ export const pageQuery = graphql`
 //       }
 //     }
 //   }
-// `;
+// `
+
+// frontmatter {
+//   title
+//   category
+//   excerpt
+//   image
+//   pubdate(formatString: "MMMM DD, YYYY")
+//   expdate(formatString: "MMMM DD, YYYY")
+//   description
+// }

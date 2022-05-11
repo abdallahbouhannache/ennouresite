@@ -1,19 +1,20 @@
-import React, { useEffect } from "react";
-import { Helmet } from "react-helmet";
+import React, { useEffect } from "react"
+import { Helmet } from "react-helmet"
 
-import { withPrefix, graphql } from "gatsby";
-import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
+import { withPrefix, graphql } from "gatsby"
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next"
 
-import Menu from "../components/menu";
-import Home from "../components/home";
-import About from "../components/about";
-import Team from "../components/team";
-import News from "../components/news";
-import Appointement from "../components/appointement";
-import Map from "../components/map";
-import Layout from "../components/layout";
-import Spinner from "../components/spinner";
+import Menu from "../components/menu"
+import Home from "../components/home"
+import About from "../components/about"
+import Team from "../components/team"
+import News from "../components/news"
+import Appointement from "../components/appointement"
+import Map from "../components/map"
+import Layout from "../components/layout"
+import Spinner from "../components/spinner"
 
+import jQuery from "jquery"
 
 // import "../i18n";
 // import Header  from "../components/header"
@@ -146,13 +147,13 @@ import Spinner from "../components/spinner";
 
 // markup
 const IndexPage = () => {
-  const { t, i18n } = useTranslation(["app"]);
+  const { t, i18n } = useTranslation(["app"])
 
   useEffect(() => {
     setTimeout(() => {
-      $(".preloader.mainpre").fadeOut(1000);
-    }, 1000);
-  }, []);
+      jQuery(".preloader.mainpre").fadeOut(1000)
+    }, 1000)
+  }, [])
 
   return (
     <Layout title={t("clinique latreche")} ns={"app"}>
@@ -172,10 +173,10 @@ const IndexPage = () => {
       {/* <Footer /> */}
       {/* </body> */}
     </Layout>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const query = graphql`
   query ($language: String!) {
@@ -191,4 +192,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`
