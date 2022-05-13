@@ -108,7 +108,7 @@ const BlogPostTemplate = ({ data, location, ns = "blog" }) => {
               {/* Entry Date */}
               {/* Entry Comment */}
               <div className="entry-comments">
-                {post.frontmatter.expdate || "january 01, 2001"}
+                {post.frontmatter.expdate || "january   01, 2001"}
                 {/* <a href="http://dermaclinic-algerie.com/autam-nuella-natae/#respond">
                   <i className="fas fa-comment"> </i>
                 </a> */}
